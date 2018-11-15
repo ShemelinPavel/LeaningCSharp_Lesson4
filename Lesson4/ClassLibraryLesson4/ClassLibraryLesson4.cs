@@ -62,7 +62,7 @@ namespace ClassLibraryLesson4
         /// вывести в консоль текст вопроса и получить ответ
         /// </summary>
         /// <param name="questionText"> текст вопроса в формате "Введите " + questionText + " :"</param>
-        /// <returns>возвратщает введенный в консоли текст ответа</returns>
+        /// <returns>возвращает введенный в консоли текст ответа</returns>
         public static string MakeQuestion(string questionText)
         {
 
