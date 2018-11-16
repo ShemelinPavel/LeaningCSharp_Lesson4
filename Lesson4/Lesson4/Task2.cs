@@ -2,6 +2,7 @@
 {
 
     using System;
+    using System.IO;
     using ClassLibraryLesson4;
 
     partial class Lesson4
@@ -9,24 +10,6 @@
 
         public class StaticClass
         {
-
-/*            private int[] classArray;
-
-            public StaticClass(uint size)
-            {
-                classArray = new int[size];
-            }
-
-            public StaticClass()
-            {
-                classArray = new int[1];
-            }
-
-            public int[] ClassArray
-                {
-                    get { return this.classArray; }
-                    set { this.classArray = value; }
-                }*/
 
             /// <summary>
             /// подсчитывает число "пар" в массив
@@ -66,6 +49,45 @@
                
             }
 
+            /// <summary>
+            /// записать массив на диск
+            /// </summary>
+            /// <param name="curArray">массив</param>
+            /// <param name="fileName">имя файла</param>
+            /// <returns>результат записи</returns>
+            public static bool SafeArrayToDisk(int[] curArray, string fileName)
+            {
+
+                StreamWriter stream = null;
+
+                bool flag = true;
+
+                try
+                {
+
+                    stream = new StreamWriter(fileName, false);
+                    foreach (var item in curArray) stream.WriteLine(item);
+                    stream.Close();
+
+                }
+                catch (DirectoryNotFoundException ex)
+                {
+
+                    ClassLibraryLesson4.Print($"Каталог не обнаружен! {ex.Message}");
+                    flag = false;
+                }
+                catch (Exception ex)
+                {
+
+                    ClassLibraryLesson4.Print($"Что-то пошло не так! {ex.Message}");
+                    flag = false;
+
+                }
+
+                return flag;
+
+            }
+
         }
 
         public static void Task2()
@@ -94,6 +116,15 @@
 
             ClassLibraryLesson4.Print("");
             ClassLibraryLesson4.Print($"Найдено {counterPairs} пар, где только одно из значений делится на  {denominator}");
+
+            string file = Path.GetTempPath() + "array.txt";
+
+            ClassLibraryLesson4.Print($"Сохранение массива в файл: {file}");
+
+            bool saveStatus = StaticClass.SafeArrayToDisk(arrayNumbers, file);
+
+            if (saveStatus) ClassLibraryLesson4.Print("Запись успешна.");
+
             ClassLibraryLesson4.Pause("Нажмите любую клавишу.");
 
         }
