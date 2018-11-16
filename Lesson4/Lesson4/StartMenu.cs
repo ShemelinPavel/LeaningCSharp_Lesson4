@@ -14,7 +14,7 @@
             Welcome = Welcome + "Меню на сегодня:\n";
             Welcome = Welcome + "1 - Работа массивом\n";
             Welcome = Welcome + "2 - Работа массивом в виде класса\n";
-            Welcome = Welcome + "3 - Работа с дробями\n";
+            Welcome = Welcome + "3 - Работа массивом в виде класса (продолжение)\n";
 
             Welcome = Welcome + "0 - Выход из программы\n";
 
@@ -40,7 +40,7 @@
 
                     case ConsoleKey.D3:
                     case ConsoleKey.NumPad3:
-                        //Task3();
+                        Task3();
                         break;
 
                     case ConsoleKey.D0:
