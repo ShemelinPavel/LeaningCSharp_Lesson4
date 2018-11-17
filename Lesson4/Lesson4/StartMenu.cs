@@ -15,6 +15,7 @@
             Welcome = Welcome + "1 - Работа массивом\n";
             Welcome = Welcome + "2 - Работа массивом в виде класса\n";
             Welcome = Welcome + "3 - Работа массивом в виде класса (продолжение)\n";
+            Welcome = Welcome + "4 - Подбор пароля по вариантам из файла\n";
 
             Welcome = Welcome + "0 - Выход из программы\n";
 
@@ -41,6 +42,11 @@
                     case ConsoleKey.D3:
                     case ConsoleKey.NumPad3:
                         Task3();
+                        break;
+
+                    case ConsoleKey.D4:
+                    case ConsoleKey.NumPad4:
+                        Task4();
                         break;
 
                     case ConsoleKey.D0:
